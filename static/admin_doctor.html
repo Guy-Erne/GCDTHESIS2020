@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Disease List</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+  <section class="hero is-link is-fullheight-with-navbar">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+		<div class="column is-half">
+		
+		<aside class="menu">
+		<form method="POST">
+  <ul class="menu-list">
+    <li><a name="Disease Details" href="{{ url_for('admin_disease')}}">Disease Details</a></li>
+    <li><a name="Doctor Details" href="{{ url_for('admin_doctor')}}" class="is-active">Doctor Details</a></li>    
+	<li><a name="Patient Details" href="{{ url_for('admin_patient')}}">Patient Details</a></li>    
+  </ul>
+		</form>
+		
+  			{% for message in get_flashed_messages() %}
+				<p>{{ message }}</p>
+			{% endfor %}
+  
+</aside>
+
+		</div>
+          <div class="column is-half">
+		  
+		  <div class="table-container">
+			<table class="table">
+			{% for item in data %}
+				<tr>
+					<td> {{item.name}} </td>
+				
+					<td> {{item.address}} </td>
+				
+					<td> {{item.type}} </td>
+				</tr>
+			{% endfor %}
+			</table>
+		  </div>
+            <form id='form2' method="POST">
+              <div class="field">
+                <label class="label">Name</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input" type="text" name="Name" placeholder="Name">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                  </span>
+                </div>
+              </div>
+			  <div class="field">
+                <label class="label">Address</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input" type="text" name="address" placeholder="Address">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                  </span>
+                </div>
+              </div>
+			  
+			  <div class="field">
+                <label class="label">Type</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input" type="text" name="Type" placeholder="Type">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                  </span>
+                </div>
+              </div>
+			  
+			  <div class="field">
+                <label class="label">Username</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input" type="text" name="uname" placeholder="Username">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                  </span>
+                </div>
+              </div>
+			  
+			  <div class="field">
+                <label class="label">Password</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input" type="text" name="pwd" placeholder="Password">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                  </span>
+                </div>
+              </div>
+		
+		
+		<br>
+              <div class="columns is-centered">
+	      <div class="field">
+                <p class="control">
+                  <button type="submit" class="button is-success">
+                    Add Doctor
+                  </button>
+                </p>
+              </div>
+	      </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Disease List</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css">
+    <script
+  src="http://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+
+  <section class="hero is-link is-fullheight-with-navbar">
+  
+  
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+		<div class="column is-half">
+		
+		<aside class="menu">
+  <ul class="menu-list">
+    <li><a href="{{ url_for('patient_details')}}">My Details</a></li>
+    <li><a href="{{ url_for('prediction')}}" class="is-active">Disease Prediction</a></li>
+    <li><a href="{{ url_for('doctor_search')}}">Doctor Search</a></li>
+  </ul>
+</aside>
+
+		</div>
+          <div class="column is-half">
+
+		  <form name="Form" method = "POST"  >
+              <p>First symptom
+                  <select class='select2' name = "symptom0">
+                      <option value="">Select symptom</option>
+                      {% for symp in symptoms%}
+
+                      <option value="{{symp[0]}}">{{symp[1]}}</option>
+                      {%endfor%}
+                  </select>
+              </p>
+    <p>Second symptom <select class='select2' name = "symptom1">
+        <option value="">Select symptom</option>
+                      {% for symp in symptoms%}
+
+                      <option value="{{symp[0]}}">{{symp[1]}}</option>
+                      {%endfor%}
+                  </select></p>
+    <p>Third symptom <select class='select2' name = "symptom2">
+        <option value="">Select symptom</option>
+                      {% for symp in symptoms%}
+
+                      <option value="{{symp[0]}}">{{symp[1]}}</option>
+                      {%endfor%}
+                  </select></p>
+    <p>Fourth symptom <select class='select2' name = "symptom3">
+        <option value="">Select symptom</option>
+                      {% for symp in symptoms%}
+
+                      <option value="{{symp[0]}}">{{symp[1]}}</option>
+                      {%endfor%}
+                  </select></p>
+    <p>Fifth symptom <select  class='select2' name = "symptom4">
+        <option value="">Select symptom</option>
+                      {% for symp in symptoms%}
+
+                      <option value="{{symp[0]}}">{{symp[1]}}</option>
+                      {%endfor%}
+                  </select></p>
+    <p>Sixth symptom <select class='select2' name = "symptom5">
+        <option value="">Select symptom</option>
+        {% for symp in symptoms%}
+
+                      <option value="{{symp[0]}}">{{symp[1]}}</option>
+                      {%endfor%}
+                  </select></p>
+    <p><input type = "submit" value = "submit" /></p>
+</form>
+
+<div class="field">
+                <label class="label">Disease</label>
+                <div class="control has-icons-left has-icons-right">
+				{% for message in get_flashed_messages() %}
+					<p>{{ message }}</p>
+				{% endfor %}
+
+                </div>
+              </div>  
+		  
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+      $(function(){
+        $('.select2').select2();
+      });
+  </script>
+</body>
+
+</html>

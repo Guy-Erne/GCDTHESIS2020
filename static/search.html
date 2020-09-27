@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Disease List</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+
+  <section class="hero is-link is-fullheight-with-navbar">
+  
+  
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+		<div class="column is-half">
+		<form method="POST">
+		<aside class="menu">
+  <ul class="menu-list">
+    <li><a name="My Details" href="{{ url_for('patient_details')}}" >My Details</a></li>
+    <li><a name="Disease Prediction" href="{{ url_for('prediction')}}">Disease Prediction</a></li>
+    <li><a name="Doctor Search" href="{{ url_for('doctor_search')}}"class="is-active">Doctor Search</a></li>
+  </ul>
+</aside>
+
+		</div>
+          <div class="column is-half">
+		  
+		  <div class="field">
+                <label class="label">Search by Name,Address, Specialization</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input" type="text" name="search" placeholder="search">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                  </span>
+                </div>
+              </div>
+        
+		<br>
+              <div class="columns is-centered">
+	      <div class="field">
+                <p class="control">
+                  <button type="submit" class="button is-success">
+                    Search
+                  </button>
+                </p>
+              </div>
+	      </div>
+		  </form>
+<div class="table-container">
+			<table class="table">
+				
+					{% for item in data %}
+				<tr>
+					<td>{{item.name}}</td>
+					<td>{{item.address}}</td>
+					<td>{{item.type}}</td>
+				</tr>
+			{% endfor %}
+				
+			</table>
+		  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>

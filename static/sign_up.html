@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign-up</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+  <section class="hero is-link is-fullheight-with-navbar">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-half">
+            <form method="POST">
+              <div class="field">
+                <label class="label">Firstname</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input" type="text" name="Firstname" placeholder="Firstname">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                  </span>
+
+                </div>
+              </div>
+		<div class="field">
+                <label class="label">Lastname</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input" type="text" name="Lastname" placeholder="Lastname">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                  </span>
+                </div>
+              </div>
+		<div class="field">
+                <label class="label">Email</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input" type="text" name="email" placeholder="Email">
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-envelope"></i>
+                  </span>
+                </div>
+              </div>
+		<div class="field">
+                <label class="label">Gender</label>
+                <div class="control has-icons-left has-icons-right">
+                  <p class="label"><input type="radio" id="male" name="Gender" value="male">&nbsp;&nbsp;  Male
+			<i class="fa fa-mars fa-2x" style="color:cyan;"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  	<input type="radio" id="female" name="Gender" value="female">&nbsp;&nbsp;  Female  
+		  	<i class="fa fa-venus fa-2x" style="color:pink;"></i>
+		  </p>
+                </div>
+              </div>
+		<div class="field">
+                <label class="label">Username</label>
+                <p class="control has-icons-left">
+                  <input class="input" type="text" name="Username" placeholder="Username">
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-user"></i>
+                  </span>
+                </p>
+              </div>
+              <div class="field">
+                <label class="label">Password</label>
+                <p class="control has-icons-left">
+                  <input class="input" type="password" name="password" placeholder="Password">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                </p>
+              </div>
+		<br>
+
+              <div class="columns is-centered">
+	      <div class="field">
+            <p>{{message}}</p>
+                <p class="control" style="text-align: center;">
+                  <button type="submit" class="button is-success">
+                    Register
+                  </button>
+                </p>
+              </div>
+	      </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>
